@@ -42,3 +42,12 @@ prices.forEach((price,idx,persons)=>{
    adjustedValue.push(priceobj);
 });
 console.log(adjustedValue)
+
+const price = [10,20 ,30]; 
+const tax = [1];
+ const adjustedPrice = [];
+  const adjustedPrice = price.map((prices,idx, price)=>{ 
+    const priceObj = [prices * ( 1 + tax)];
+     return (priceObj); 
+     })
+ console.log(adjustedPrice);
