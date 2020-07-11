@@ -51,3 +51,26 @@ const tax = [1];
      return (priceObj); 
      })
  console.log(adjustedPrice);
+
+//  sorted array
+const price = [10.9,11.23,1.23,4.5];
+const sortedPrice = price.sort((a,b)=>{
+    if(a>b){
+        return 1;
+    }
+        else if (a===b) {
+            return 0;
+        }
+        else {
+            return 2;
+        }
+
+});
+console.log(sortedPrice);
+
+// implementing reduce function
+const prices = [10.99,5.99,3.99,2.4];
+const sum = prices.reduce((prevValue,curValue,index,price)=>{
+    return prevValue + curValue
+},0);
+console.log(sum)
