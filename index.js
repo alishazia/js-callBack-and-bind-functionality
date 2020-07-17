@@ -1,76 +1,27 @@
+const addMovie = document.getElementById('add-movie-btn');
+const search = document.getElementById('search-btn');
 
-// const combine = (handleResult, operation, ...numbers) => {
-//   const validateNumber = (number) => {
-//     return isNaN(number) ? 0 : number;
-//     console.log(number)
-//   }
-//   let sum = 0;
-//   for (const num of numbers) {
-//     if (operation ==='ADD'){
-//           sum += validateNumber(num);
-//     }else{
-//           sum -= validateNumber(num);
-//     }
-//   }
-//   handleResult(sum);
-//   console.log(sum)
-// }
+const movies = [];
 
-// // const subtractUp = (handleResult,...numbers) => {
-// //   let sum = 0;
-// //   for (const num of numbers ) {
-// //     sum -= num;
-// //   }
-// //   handleResult(sum);
-// // };
+const captureMovie = () => {
+    const getMovie = document.getElementById('title').value;
+    const getExtraInfo = document.getElementById('extra-name').value;
+    const getExtraInfoValue = document.getElementById('extra-value').value;
 
-// const showResult = (messageText,result) => {
-//   console.log(result)
-//   alert(messageText  + result);
-// };
-
-// combine(showResult.bind(this,'result is :'),'ADD', 1, 2, 4, 5, 6, 7, 8)
-// combine(showResult.bind(this,'result is :'),'SUBTRACT', 1, 2, 4, 5, 6, 7, 8)
-
-
-// implementing forEach here
-const prices = [1,2,3];
-const value = 1;
-const adjustedValue =[];
-prices.forEach((price,idx,persons)=>{
-   const priceobj = {index:idx,newAdjustedValue : price * (1+ value)}
-   adjustedValue.push(priceobj);
-});
-console.log(adjustedValue)
-
-const price = [10,20 ,30]; 
-const tax = [1];
- const adjustedPrice = [];
-  const adjustedPrice = price.map((prices,idx, price)=>{ 
-    const priceObj = [prices * ( 1 + tax)];
-     return (priceObj); 
-     })
- console.log(adjustedPrice);
-
-//  sorted array
-const price = [10.9,11.23,1.23,4.5];
-const sortedPrice = price.sort((a,b)=>{
-    if(a>b){
-        return 1;
+    if ( getExtraInfoValue.trim() === "" || getExtraInfo.trim() === "" || getMovie.trim() ===""){
+        return;
     }
-        else if (a===b) {
-            return 0;
-        }
-        else {
-            return 2;
-        }
 
-});
-console.log(sortedPrice);
+    const movieCapturedFromUser = {
+       info :
+       { getMovie ,
+        [getExtraInfo] : getExtraInfoValue
+       },
+       id : Math.random()
+    };
 
-// implementing reduce function
-const prices = [10.99,5.99,3.99,2.4];
-const sum = prices.reduce((prevValue,curValue,index,price)=>{
-    return prevValue + curValue
-},0);
-console.log(sum)
+    movies.push(movieCapturedFromUser);
+    console.log(movieCapturedFromUser);
+}
+
+addMovie.addEventListener('click', captureMovie);
